@@ -32,16 +32,16 @@ jobs:
         NEW_VERSION: ${{ steps.version.outputs.version}}
       run:  |
         echo "New Version👉 $NEW_VERSION"
-    #     echo "Initialize login"
-    #     docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    #     echo "Finish login"
-    # - name: Build Docker Image
-    #   run: |
-    #     docker build -t moive30/docker-graphql:0.0.2 .
-    #     docker build -t moive30/docker-graphql:latest .
-    # - name: Push Docker Image
-    #   run: |
-    #     docker push moive30/docker-graphql:0.0.2
-    #     docker push moive30/docker-graphql:latest
+        echo "Initialize login"
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        echo "Finish login"
+    - name: Build Docker Image
+      run: |
+        docker build -t moive30/docker-graphql:0.0.2 .
+        docker build -t moive30/docker-graphql:latest .
+    - name: Push Docker Image
+      run: |
+        docker push moive30/docker-graphql:0.0.2
+        docker push moive30/docker-graphql:latest
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
